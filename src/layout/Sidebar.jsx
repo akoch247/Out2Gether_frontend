@@ -6,19 +6,22 @@ import "./Layout.css";
 
 export default function Sidebar() {
     return (
-        <>
-            <div id="brand">
+        //sidebar container for entire left page 
+        <div className="sidebar">
+            {/*Logo styling*/}
+            <div className="brand">
                 <img src= "/Out2GetherLogo.png" alt="Out2Gether Logo" width="100" />
-                <p>Out2Gether</p>
+                <p className="brand-name">Out2Gether</p>
             </div>
-
-            <nav id="nav-links">
-                <Link to="/eventgrid">Nearby</Link>
-                <Link to="/favorites">Favorites</Link>
-                <Link to="/eventgrid">Explore</Link>
-                <Link to="/cartpage">Checkout</Link>
-                <Link to="/login">Logout</Link>
+            {/*Nav-Link styling*/}
+            <nav className="nav-links">
+                <Link to="/eventgrid" className="nav-item active">Nearby</Link>
+                <Link to="/favorites" className="nav-item">Favorites</Link>
+                <Link to="/eventgrid" className="nav-item">Explore</Link>
+                <Link to="/cartpage" className="nav-item">Checkout</Link>
+                <Link to="/login" className="nav-item">Logout</Link>
             </nav>
-        </>
+
+        </div>
     );
 }
