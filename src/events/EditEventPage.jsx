@@ -3,6 +3,8 @@ import React from "react";
 
 export default function EditEventPage() {
     return (
-        <h1>EditEventPage</h1>
+        <>
+            <h1>EditEventPage</h1>
+        </>
     );
 }

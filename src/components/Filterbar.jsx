@@ -4,6 +4,8 @@ import React from "react";
 
 export default function FilterBar() {
     return (
-        <h1>Filterbar</h1>
+        <>
+            <h1>Filterbar</h1>
+        </>
     );
 }

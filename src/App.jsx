@@ -6,7 +6,6 @@ import Error404 from "./Error404";
 import Layout from "./layout/Layout.jsx";
 
 
-
 export default function App() {
   return (
     <BrowserRouter>

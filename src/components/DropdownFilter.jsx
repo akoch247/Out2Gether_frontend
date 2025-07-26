@@ -3,6 +3,8 @@ import React from "react";
 
 export default function DropdownFilter() {
     return (
-        <h1>DropdownFilter</h1>
+        <>
+            <h1>DropdownFilter</h1>
+        </>
     );
 }

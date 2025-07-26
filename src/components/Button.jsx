@@ -4,6 +4,8 @@ import React from "react";
 
 export default function Button() {
     return (
-        <h1>Button</h1>
+        <>
+             <h1>Button</h1>
+        </>
     );
 }

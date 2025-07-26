@@ -3,6 +3,8 @@ import React from "react";
 
 export default function CreateEventPage() {
     return (
-        <h1>CreateEventPage</h1>
+        <>
+            <h1>CreateEventPage</h1>
+        </>
     );
 }

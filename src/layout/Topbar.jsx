@@ -4,6 +4,8 @@ import React from "react";
 
 export default function Topbar() {
     return (
-        <h1>Topbar</h1>
+        <>
+            <h1>Topbar</h1>
+        </>
     );
 }

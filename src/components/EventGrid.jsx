@@ -3,6 +3,8 @@ import React from "react";
 
 export default function EventGrid() {
     return (
-        <h1>EventGrid</h1>
+        <>
+            <h1>EventGrid</h1>
+        </>
     );
 }
