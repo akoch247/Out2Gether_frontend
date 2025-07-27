@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useAuth } from "./AuthContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Login() {
@@ -49,7 +48,7 @@ export default function Login() {
                             name="username"
                             id="username"
                             className="form-control form-control-sm"
-                            placeholder="Enter Your Username"
+                            placeholder=" Enter Your Username"
                             required
                             style={{ border: "2px solid #333", boxShadow: "none" }}
                         />
