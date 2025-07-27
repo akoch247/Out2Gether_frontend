@@ -8,7 +8,6 @@ import Favorites from "./favorites/FavoritesPage.jsx";
 import EventGrid from "./components/EventGrid.jsx";
 import CartPage from "./checkout/CartPage.jsx";
 
-
 export default function App() {
   return (
     <BrowserRouter>
