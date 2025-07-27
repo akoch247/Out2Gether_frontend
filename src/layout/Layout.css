@@ -1,6 +1,8 @@
+
+
 /* Container styling for sidebar */
 .sidebar {
-    width: 250px;
+    width: 220px;
     height: 100vh; /* will fit the height of the full screen regardless of content */
     background-color: #fff;
     border-right: 1px solid #ddd;
@@ -9,6 +11,8 @@
     align-items: center;
     padding-top: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); 
+    overflow: auto;
+    position: fixed;
 }
 
 /* Logo Styling */
