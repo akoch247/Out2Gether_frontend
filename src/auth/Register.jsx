@@ -30,7 +30,7 @@ export default function Register() {
             <div className="login-container text-center p-5 shadow rounded-4 w-100 h-100" style={{ maxWidth: "600px", maxHeight: "700px" }}>
 
                 {/* Logo Styling */}
-                <img src="Out2GetherLogo.png" alt="Out2Gether Logo" width="120" className="mb-4" />
+                <img src="Out2GetherLogo.png" alt="Out2Gether Logo" width="180" className="mb-3" />
 
                 {/* Register Styling */}
                 <h2 className="mb-4" style={{ fontWeight: "normal" }}>Register</h2>

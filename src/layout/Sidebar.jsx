@@ -10,8 +10,7 @@ export default function Sidebar() {
         <div className="sidebar">
             {/*Logo styling*/}
             <div className="brand">
-                <img src= "/Out2GetherLogo.png" alt="Out2Gether Logo" width="100" />
-                <p className="brand-name">Out2Gether</p>
+                <img src= "/Out2GetherLogo.png" alt="Out2Gether Logo" width="120" />
             </div>
             {/*Nav-Link styling*/}
             <nav className="nav-links">

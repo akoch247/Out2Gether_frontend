@@ -33,7 +33,7 @@ export default function Login() {
             
 
                 {/* Logo Styling */}
-                <img src="Out2GetherLogo.png" alt="Out2Gether Logo" width="120" className="mb-4" />
+                <img src="Out2GetherLogo.png" alt="Out2Gether Logo" width="180" className="mb-3" />
 
                 {/* Login Styling */}
                 <h2 className="mb-4" style={{ fontWeight: "normal" }}>Login</h2>
