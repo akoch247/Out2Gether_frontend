@@ -18,7 +18,7 @@ export default function Topbar() {
         </Link>
         {/* Cart Button Styling */}
         <Link
-          to="/cartpage"
+          to="/cart"
           className="btn btn-danger d-flex align-items-center fw-semibold mx-5 fs-5"
           style={{
             backgroundColor: "#F35242",
