@@ -12,15 +12,15 @@ export default function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (formData) => {
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
     setError(null);
 
-    const formData = new FormData(e.target);
-    const credentials = Object.fromEntries(formData);
-
     try {
-      await register(credentials);
+      await register({ username, email, password });
       navigate("/eventgrid");
     } catch (err) {
       setError(err.message);
@@ -47,7 +47,7 @@ export default function Register() {
         </h2>
 
         {/* Form Styling */}
-        <form onSubmit={handleSubmit}>
+        <form action={handleSubmit}>
           {/* Email Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
