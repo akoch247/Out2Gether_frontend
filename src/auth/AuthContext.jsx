@@ -1,10 +1,39 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { API } from "../api/ApiContext";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      return;
+    }
+
+    const verify = async () => {
+      const response = await fetch(API + "/users/me", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jwt: token }),
+      });
+
+      if (!response.ok) {
+        logout();
+        return;
+      }
+
+      const result = await response.json();
+
+      setToken(token);
+      setUser(result);
+    };
+
+    verify();
+  }, []);
 
   const register = async (credentials) => {
     const response = await fetch(API + "/users/register", {
@@ -14,10 +43,10 @@ export function AuthProvider({ children }) {
     });
 
     const result = await response.text();
+
     if (!response.ok) {
       throw new Error(result);
     }
-    setToken(result);
   };
 
   const login = async (credentials) => {
@@ -27,17 +56,24 @@ export function AuthProvider({ children }) {
       body: JSON.stringify(credentials),
     });
 
-    const result = await response.text();
-
     if (!response.ok) {
-      throw new Error(result);
+      throw new Error(await response.text());
     }
-    setToken(result);
+
+    const result = await response.json();
+
+    setToken(result.jwt);
+    setUser(result.user)
+    localStorage.setItem("token", result.jwt);
   };
 
-  const logout = () => setToken(null);
+  const logout = () => {
+    setToken(null);
+    setUser(null);
+    localStorage.removeItem("token");
+  };
 
-  const value = { token, register, login, logout };
+  const value = { token, user, register, login, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
