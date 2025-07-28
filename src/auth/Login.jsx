@@ -12,15 +12,13 @@ export default function Login() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (formData) => {
     setError(null);
-
-    const formData = new FormData(e.target);
-    const credentials = Object.fromEntries(formData);
+    const email = formData.get("username");
+    const password = formData.get("password");
 
     try {
-      await login(credentials);
+      await login({ email, password });
       navigate("/eventgrid");
     } catch (err) {
       setError(err.message);
@@ -47,7 +45,7 @@ export default function Login() {
         </h2>
 
         {/* Form Styling */}
-        <form onSubmit={handleSubmit}>
+        <form action={handleSubmit}>
           {/* Username Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
