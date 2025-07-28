@@ -17,14 +17,16 @@ export default function Sidebar() {
                 <img src= "/Out2GetherLogo.png" alt="Out2Gether Logo" width="120" />
             </div>
             {/*Nav-Link styling*/}
-            <nav className="nav-links" >
+            <nav className="nav-links flex-grow-1 d-flex flex-column">
                 <Link to="/eventgrid" className="nav-item active mx-3"><FiNavigation /> Nearby</Link>
                 <Link to="/favorites" className="nav-item mx-3"><BsHeart /> Favorites</Link>
                 <Link to="/eventgrid" className="nav-item mx-3"><MdOutlineExplore /> Explore</Link>
                 <Link to="/cartpage" className="nav-item mx-3"><BsCart /> Checkout</Link>
-                <Link to="/login" className="nav-item mx-3"><IoIosLogOut /> Logout</Link>
             </nav>
-
+            {/* Logout-Link Styling */}
+            <div className="nav-links flex-grow-2 d-flex flex-column">
+                <Link to="/login" className="nav-item mx-3 mb-4"><IoIosLogOut /> Logout</Link>
+            </div>
         </div>
     );
 }
