@@ -1,32 +1,30 @@
-
-
 /* Container styling for sidebar */
 .sidebar {
-    width: 220px;
-    height: 100vh; /* will fit the height of the full screen regardless of content */
-    background-color: #fff;
-    border-right: 1px solid #ddd;
-    display: flex; /* allows to stack items on top of each other */
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); 
-    overflow: auto;
-    position: fixed;
+  width: 220px;
+  height: 100vh; /* will fit the height of the full screen regardless of content */
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  display: flex; /* allows to stack items on top of each other */
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+  position: fixed;
 }
 
 /* Logo Styling */
 .brand {
-    display: flex;
-    flex-direction: column; /* logo will be on top of name */
-    align-items: center;
-    margin-bottom: 40px; 
+  display: flex;
+  flex-direction: column; /* logo will be on top of name */
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .brand-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 8px;
 }
 
 /* Nav-link styling */
@@ -39,30 +37,29 @@
 }
 
 .nav-item {
-    text-decoration: none; /*remove the underline below link */
-    color: #000;
-    font-weight: 500;
-    padding: 10px 16px;
-    border-radius: 30px;
-    transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none; /*remove the underline below link */
+  color: #000;
+  font-weight: 500;
+  padding: 10px 16px;
+  margin: 0 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 /* Hovering effect for links */
 .nav-item:hover {
-    background-color: #ffe28a; /* Adds a light yellow highlight */
+  background-color: #ffe28a; /* Adds a light yellow highlight */
 }
 
 /* Style for current selected page link */
 .nav-item.active {
-    background-color: #fecd45;
-    font-weight: 600;
+  background-color: #ffc244;
+  font-weight: 600;
 }
 
-/* Logout styling for logout button 
-.logout {
-    margin-bottom: 30px;
-    width: 100%;
-    padding-left: 30px;
-}
-
-*/
