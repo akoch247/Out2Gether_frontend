@@ -7,12 +7,16 @@ const ApiContext = createContext();
 
 export function ApiProvider({ children }) {
   const { token } = useAuth();
+  
+  const headers = { "Content-Type": "application/json" };
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
 
-  const request = async (resource, options = {}) => {
-    const headers = { "Content-Type": "application/json", ...options.headers };
-    if (token) {
-      headers["Authorization"] = `Bearer ${token}`;
-    }
+  console.log("API Token: ", token);
+
+  const request = async (resource, options) => {
+    console.log("Request Headers: ", headers);
 
     const response = await fetch(API + resource, {
       ...options,
