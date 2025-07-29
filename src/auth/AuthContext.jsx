@@ -9,27 +9,29 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     if (!token) {
       return;
     }
-
     const verify = async () => {
-      const response = await fetch(API + "/users/me", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ jwt: token }),
-      });
+      try {
+        const response = await fetch(API + "/users/me", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jwt: token }),
+        });
 
-      if (!response.ok) {
+        if (!response.ok) {
+          logout();
+          return;
+        }
+
+        const result = await response.json();
+        setToken(token);
+        setUser(result);
+      } catch (error) {
+        console.error("Token verification failed", error);
         logout();
-        return;
       }
-
-      const result = await response.json();
-
-      setToken(token);
-      setUser(result);
     };
 
     verify();
@@ -42,11 +44,14 @@ export function AuthProvider({ children }) {
       body: JSON.stringify(credentials),
     });
 
-    const result = await response.text();
-
     if (!response.ok) {
-      throw new Error(result);
+      throw new Error(await response.text());
     }
+
+    const result = await response.json();
+    setToken(result.jwt);
+    setUser(result.user);
+    localStorage.setItem("token", result.jwt);
   };
 
   const login = async (credentials) => {
@@ -61,9 +66,8 @@ export function AuthProvider({ children }) {
     }
 
     const result = await response.json();
-
     setToken(result.jwt);
-    setUser(result.user)
+    setUser(result.user);
     localStorage.setItem("token", result.jwt);
   };
 

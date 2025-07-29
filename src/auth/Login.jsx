@@ -19,8 +19,8 @@ export default function Login() {
     const credentials = Object.fromEntries(formData);
 
     try {
-      await login({ credentials });
-      navigate("/");
+      await login(credentials);
+      navigate("/eventgrid");
     } catch (err) {
       setError(err.message);
     }
