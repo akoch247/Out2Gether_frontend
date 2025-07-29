@@ -4,7 +4,7 @@ import { useAuth } from "./AuthContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CgProfile } from "react-icons/cg";
+import { TfiEmail } from "react-icons/tfi";
 import { IoLockClosedOutline } from "react-icons/io5";
 
 export default function Login() {
@@ -49,14 +49,14 @@ export default function Login() {
           {/* Username Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="form-label text-start w-100"
               style={{ marginBottom: "0.15rem" }}
             >
-              Username
+              Email
             </label>
             <div style={{ position: "relative" }}>
-              <CgProfile
+              <TfiEmail
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -66,11 +66,11 @@ export default function Login() {
                 }}
               />
               <input
-                type="text"
-                name="username"
-                id="username"
+                type="email"
+                name="email"
+                id="email"
                 className="form-control form-control-sm"
-                placeholder=" Enter Your Username"
+                placeholder="Enter Your Email"
                 required
                 style={{
                   border: "2px solid #333",
@@ -80,7 +80,6 @@ export default function Login() {
               />
             </div>
           </div>
-
           {/* Password Styling */}
           <div
             className="mb-3 text-start"
