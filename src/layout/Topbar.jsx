@@ -1,21 +1,25 @@
 // The nav bar on the top that will have the Account and Cart buttons
-import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 export default function Topbar() {
+  const { token } = useAuth();
+
   return (
     //topbar container for top of page
     <div className="d-flex justify-content-end align-items-center py-4 py-3 border-bottom bg-light">
       <div className="d-flex gap-4 align-items-center">
         {/*Account Styling*/}
-        <Link
-          to="/account"
-          className="d-flex align-items-center text-dark text-decoration-none fs-5"
-        >
-          <CgProfile size={30} className="me-2" />
-          Account
-        </Link>
+        {token && (
+          <Link
+            to="/account"
+            className="d-flex align-items-center text-dark text-decoration-none fs-5"
+          >
+            <CgProfile size={30} className="me-2" />
+            Account
+          </Link>
+        )}
         {/* Cart Button Styling */}
         <Link
           to="/cart"

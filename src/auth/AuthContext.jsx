@@ -4,14 +4,10 @@ import { API } from "../api/ApiContext";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return;
-    }
     const verify = async () => {
       try {
         const response = await fetch(API + "/users/me", {
@@ -26,7 +22,6 @@ export function AuthProvider({ children }) {
         }
 
         const result = await response.json();
-        setToken(token);
         setUser(result);
       } catch (error) {
         console.error("Token verification failed", error);
@@ -35,7 +30,7 @@ export function AuthProvider({ children }) {
     };
 
     verify();
-  }, []);
+  }, [token]);
 
   const register = async (credentials) => {
     const response = await fetch(API + "/users/register", {
