@@ -11,13 +11,14 @@ import CreateEventPage from "./events/CreateEventPage.jsx";
 import EditEventPage from "./events/EditEventPage.jsx";
 import MyPosts from "./accounts/MyPosts.jsx";
 import AccountPage from "./accounts/AccountPage.jsx";
+import NearbyPage from "./components/NearbyPage.jsx";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Login />} />
+          <Route index element={<NearbyPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/favorites" element={<Favorites />} />
@@ -31,5 +32,5 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
