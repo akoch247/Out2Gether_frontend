@@ -10,7 +10,7 @@ export default function CreateEventPage() {
 
                 <form>
                     <div className="row mb-3">
-                        <div classname="col-md-6">
+                        <div className="col-md-6">
                             <label htmlFor="title" className="form-label">Title</label>
                             <input type="text" className="form-control" id="title" placeholder="Enter a title" /> 
                         </div>
@@ -38,7 +38,7 @@ export default function CreateEventPage() {
                                 <option>Budegt Friendly</option>
                             </select>
                         </div>
-                        <div className="col=md-3">
+                        <div className="col-md-3">
                             <label htmlFor="price" className="form-label">Price</label>
                             <input type="text" className="form-control" id="price" /> 
                         </div>
