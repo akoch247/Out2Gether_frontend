@@ -3,8 +3,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function EventCard({ post, onAddtoCart }) {
-  const { id, title, body, date, time, location, price } = post;
+export default function EventCard({ post, onAddToCart }) {
+  const { id, title, body, date, time, location, price, image_url } = post;
 
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -27,25 +27,43 @@ export default function EventCard({ post, onAddtoCart }) {
 
   return (
     <div className="card h-100 shadow">
-      <div className="card-body d-flex flex-column">
-        <h5 className="card-title fw-semibold">{title.toUpperCase()}</h5>
-        <p className="card-text">{body}</p>
+      {/* ✅ FIX: Wrap the image and body in a row */}
+      <div className="row g-0">
+        {/* ✅ FIX: Place the image in its own column */}
+        <div className="col-md-5">
+          <img
+            src={image_url}
+            className="img-fluid rounded-start"
+            alt={title}
+            style={{ height: "100%", objectFit: "cover" }}
+          />
+        </div>
+        {/* ✅ FIX: Place the text content in its own column */}
+        <div className="col-md-7">
+          <div className="card-body d-flex flex-column">
+            <h5 className="card-title fw-semibold">{title.toUpperCase()}</h5>
+            <p className="card-text">{body}</p>
+            <p>
+              <small className="text-muted">
+                {formattedDate} at {formattedTime}
+              </small>
+            </p>
+            <p>
+              <small className="text-muted">{formattedLocation}</small>
+            </p>
 
-        <p>
-          <small className="text-muted">{formattedLocation}</small>
-        </p>
-
-        <p>
-          <small className="text-muted">{formattedTime}</small>
-        </p>
-
-        <div className="mt-auto">
-          <p className="card-text mt-3">
-            <small className="text-muted">${price} per couple</small>
-          </p>
-          <button onClick={() => onAddtoCart(id)} className="btn btn-success">
-            Add to Cart
-          </button>
+            <div className="mt-auto">
+              <p className="card-text mt-3">
+                <small className="text-muted">${price} per couple</small>
+              </p>
+              <button
+                onClick={() => onAddToCart(id)}
+                className="btn btn-success"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
