@@ -12,6 +12,7 @@ import EditEventPage from "./events/EditEventPage.jsx";
 import MyPosts from "./accounts/MyPosts.jsx";
 import AccountPage from "./accounts/AccountPage.jsx";
 import NearbyPage from "./components/NearbyPage.jsx";
+import SinglePostPage from "./events/SinglePostPage.jsx";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<NearbyPage />} />
+          <Route path="/posts/:id" element={<SinglePostPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/favorites" element={<Favorites />} />
