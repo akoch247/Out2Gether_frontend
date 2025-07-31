@@ -1,0 +1,11 @@
+.cartPageContent {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
+}
