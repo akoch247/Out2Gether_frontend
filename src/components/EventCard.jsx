@@ -14,7 +14,7 @@ export default function EventCard({ post, onAddToCart }) {
   });
 
   const formattedTime = time
-    ? new Date(`1970-01-01T${time}Z`).toLocaleDateString("en-US", {
+    ? new Date(`1970-01-01T${time}Z`).toLocaleTimeString("en-US", {
         hour: "numeric",
         minute: "2-digit",
         timeZone: "UTC",
@@ -26,42 +26,48 @@ export default function EventCard({ post, onAddToCart }) {
     : "N/A";
 
   return (
-    <div className="card h-100 shadow">
-      {/* ✅ FIX: Wrap the image and body in a row */}
-      <div className="row g-0">
-        {/* ✅ FIX: Place the image in its own column */}
-        <div className="col-md-5">
-          <img
-            src={image_url}
-            className="img-fluid rounded-start"
-            alt={title}
-            style={{ height: "100%", objectFit: "cover" }}
-          />
-        </div>
-        {/* ✅ FIX: Place the text content in its own column */}
-        <div className="col-md-7">
-          <div className="card-body d-flex flex-column">
-            <h5 className="card-title fw-semibold">{title.toUpperCase()}</h5>
-            <p className="card-text">{body}</p>
-            <p>
-              <small className="text-muted">
-                {formattedDate} at {formattedTime}
-              </small>
-            </p>
-            <p>
-              <small className="text-muted">{formattedLocation}</small>
-            </p>
-
-            <div className="mt-auto">
-              <p className="card-text mt-3">
-                <small className="text-muted">${price} per couple</small>
+    <div style={{ maxWidth: "800px", margin: "auto" }}>
+      <div className="card h-100 shadow">
+        <div className="row g-0">
+          <div className="col-md-5 p-3">
+            <img
+              src={image_url}
+              className="img-fluid rounded"
+              alt={title}
+              style={{ height: "100%", objectFit: "cover" }}
+            />
+          </div>
+          <div className="col-md-7">
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title fw-semibold">{title}</h5>
+              <p className="card-text">{body}</p>
+              <p>
+                <small>Date: {formattedDate}</small>
               </p>
-              <button
-                onClick={() => onAddToCart(id)}
-                className="btn btn-success"
-              >
-                Add to Cart
-              </button>
+              <p>
+                <small>Time: {formattedTime}</small>
+              </p>
+              <p>
+                <small>Location: {formattedLocation}</small>
+              </p>
+
+              <div className="mt-auto">
+                <p className="card-text mt-3">
+                  <small>Price: ${price} per couple</small>
+                </p>
+                <button
+                  onClick={() => onAddToCart(id)}
+                  className="btn"
+                  style={{
+                    backgroundColor: "#28BCB3",
+                    color: "white",
+                    borderColor: "#28BCB3",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
