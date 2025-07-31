@@ -15,7 +15,7 @@ export default function Favorites() {
 
   return (
     <div className="favoritesPageContainer">
-      <h1>Favoritesttttttttttttt</h1>
+      <h1>Favorites</h1>
       {favorites.map(favorite => {
         return <div key={favorite.post_id}>{favorite.post.title}</div>
       })}

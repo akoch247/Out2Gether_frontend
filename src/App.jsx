@@ -23,11 +23,11 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/eventgrid" element={<EventGrid />} />
-          <Route path="/cartpage" element={<CartPage />} />
           <Route path="/createeventpage" element={<CreateEventPage />} />
           <Route path="/editeventpage" element={<EditEventPage />} />
           <Route path="/myposts" element={<MyPosts />} />
           <Route path="/account" element={<AccountPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
