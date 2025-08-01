@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function EventCard({ post, onAddToCart }) {
+export default function EventCard({ post, onAddToCart, addingError }) {
   const { id, title, body, date, time, location, price, image_url } = post;
 
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -24,6 +24,12 @@ export default function EventCard({ post, onAddToCart }) {
   const formattedLocation = location
     ? `${location.address}, ${location.city}, ${location.state} ${location.zip_code}`
     : "N/A";
+
+  let addingErrorMessage = addingError?.message;
+
+  if (addingError && addingErrorMessage === "23505") {
+    addingErrorMessage = "This item is already in your cart.";
+  }
 
   return (
     <div style={{ maxWidth: "800px", margin: "auto" }}>
@@ -55,6 +61,7 @@ export default function EventCard({ post, onAddToCart }) {
                 <p className="card-text mt-3">
                   <small>Price: ${price} per couple</small>
                 </p>
+                {addingErrorMessage && <div className="alert alert-danger">{addingErrorMessage}</div>}
                 <button
                   onClick={() => onAddToCart(id)}
                   className="btn"

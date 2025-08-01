@@ -10,43 +10,48 @@ import { IoIosLogOut } from "react-icons/io";
 import { FiNavigation } from "react-icons/fi";
 
 export default function Sidebar() {
-    const { logout } = useAuth();
-    const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-    const handleLogout = () => {
-        logout();
-        navigate("/login");
-    };
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
-    return (
-        <div className="sidebar">
-            {/* Logo */}
-            <div className="brand">
-                <img src="/Out2GetherLogo.png" alt="Out2Gether Logo" width="120" />
-            </div>
+  return (
+    <div className="sidebar">
+      {/* Logo */}
+      <div className="brand">
+        <img src="/Out2GetherLogo.png" alt="Out2Gether Logo" width="120" />
+      </div>
 
-            {/* Navigation Links */}
-            <div className="nav-links flex-grow-1 d-flex flex-column">
-                <NavLink to="/" className="nav-item mx-3" end>
-                    <FiNavigation /> Nearby
-                </NavLink>
-                <NavLink to="/favorites" className="nav-item mx-3">
-                    <BsHeart /> Favorites
-                </NavLink>
-                <NavLink to="/explore" className="nav-item mx-3">
-                    <MdOutlineExplore /> Explore
-                </NavLink>
-                <NavLink to="/cart" className="nav-item mx-3">
-                    <BsCart /> Checkout
-                </NavLink>
-            </div>
+      {/* Navigation Links */}
+      <div className="nav-links flex-grow-1 d-flex flex-column">
+        <NavLink to="/" className="nav-item mx-3" end>
+          <FiNavigation /> Nearby
+        </NavLink>
+        <NavLink to="/favorites" className="nav-item mx-3">
+          <BsHeart /> Favorites
+        </NavLink>
+        <NavLink to="/explore" className="nav-item mx-3">
+          <MdOutlineExplore /> Explore
+        </NavLink>
+        <NavLink to="/cart" className="nav-item mx-3">
+          <BsCart /> Checkout
+        </NavLink>
+      </div>
 
-            {/* Logout button pinned to bottom */}
-            <div className="nav-links flex-grow-2 d-flex flex-column">
-                <button onClick={handleLogout} className="nav-item logout-button mx-3 mb-4">
-                    <IoIosLogOut /> Logout
-                </button>
-            </div>
+      {/* Logout button pinned to bottom */}
+      {user && (
+        <div className="nav-links flex-grow-2 d-flex flex-column">
+          <button
+            onClick={handleLogout}
+            className="nav-item logout-button mx-3 mb-4"
+          >
+            <IoIosLogOut /> Logout
+          </button>
         </div>
-    );
+      )}
+    </div>
+  );
 }
