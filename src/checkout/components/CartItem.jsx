@@ -1,11 +1,10 @@
-import { FaTrashAlt } from "react-icons/fa";
-import { LuPencil } from "react-icons/lu";
-import "./style/cartItem.css";
+import "../style/cartItem.css";
+import DeleteButton from "./DeleteButton";
+import CartEditButton from "./CartEditButton";
 
 export default function CartItem({ item }) {
   const price = item.post.price * item.quantity;
 
-  console.log(item);
   return (
     <div className="cartItem">
       <img src={item.post.image_url} />
@@ -20,13 +19,8 @@ export default function CartItem({ item }) {
         </div>
 
         <div className="cartItemFooter">
-          <span>
-            {item.quantity} Couple(s)
-            <LuPencil />
-          </span>
-          <button>
-            Delete <FaTrashAlt />
-          </button>
+          <CartEditButton item={item}/>
+          <DeleteButton item={item}/>
         </div>
       </div>
     </div>

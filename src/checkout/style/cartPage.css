@@ -4,6 +4,16 @@
   width: 100%;
 }
 
+.cartPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5ch;
+}
+
+.cartPageContainer .cartPageHeader {
+  align-self: center;
+}
+
 .cartItems {
   display: flex;
   flex-direction: column;

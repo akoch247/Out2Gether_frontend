@@ -13,19 +13,15 @@ export function ApiProvider({ children }) {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  console.log("API Token: ", token);
-
   const request = async (resource, options) => {
-    console.log("Request Headers: ", headers);
-
     const response = await fetch(API + resource, {
       ...options,
       headers,
     });
 
     const isJson = /json/.test(response.headers.get("Content-Type"));
-    const result = isJson ? await response.json() : undefined;
-    if (!response.ok) throw Error(result?.message ?? "Something went wrong :(");
+    const result = isJson ? await response.json() : await response.text();
+    if (!response.ok) throw Error(result ?? "Something went wrong :(");
     return result;
   };
 

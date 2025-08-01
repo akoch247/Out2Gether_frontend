@@ -43,7 +43,7 @@
   gap: 2ch;
 }
 
-.cartItemFooter span {
+.cartItemFooter .cartBtn.editBtn {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -54,7 +54,7 @@
   border-radius: 20px;
 }
 
-.cartItemFooter button {
+.cartItemFooter .cartBtn.deleteBtn {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -66,4 +66,58 @@
   padding: 8px;
   border-radius: 20px;
   border: none;
+  transition: ease-in-out opacity 0.3s;
+}
+
+.cartItemFooter .cartBtn.editBtn:hover,
+.cartItemFooter .cartBtn.deleteBtn:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.cartEditorMenu {
+  position: absolute;
+  width: 125px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 15px;
+  margin-bottom: 70px;
+  background-color: rgb(201, 198, 198, 1.0);
+}
+
+.cartEditorMenu form input,
+.cartEditorMenu form {
+  width: 25px;
+  text-align: center;
+  background-color: rgb(201, 198, 198, 0.9);
+  border: none;
+}
+
+.cartEditorMenu form input[type="number"]::-webkit-inner-spin-button,
+.cartEditorMenu form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cartEditorMenu .cartBtn {
+  border-radius: 50%;
+  border: 1px solid gray;
+  height: 100%;
+  width: 30px;
+  transition: ease-in-out opacity 0.2s;
+}
+
+.cartEditorMenu .cartBtn:hover {
+  cursor: pointer;
+  opacity: 75%;
+}
+
+.cartEditorMenu .cartBtn.decreaseBtn {
+  background-color: rgba(221, 71, 51, 0.877);
+}
+
+.cartEditorMenu .cartBtn.increaseBtn {
+  background-color: lime;
 }
