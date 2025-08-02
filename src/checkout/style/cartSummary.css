@@ -26,8 +26,8 @@
 }
 
 .cartSummaryDetails {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .subTotal {
@@ -48,6 +48,9 @@
   width: 289px;
   height: 48px;
   background-color: #28bcb3;
+  border-color: #28bcb3;
+  color: white;
+  font-weight: bold;
   border: none;
   border-radius: 10px;
   align-self: center;
