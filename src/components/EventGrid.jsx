@@ -1,7 +1,8 @@
 // Lays out multiple event cards in a responsive grid/list
+
 import React, { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
-import { Link } from "react-router-dom";
+import EventCard from "./EventCard";
 
 export default function EventGrid() {
   const [posts, setPosts] = useState([]);
@@ -35,53 +36,7 @@ export default function EventGrid() {
       <div className="row g-4">
         {posts.map((post) => (
           <div key={post.id} className="col-12">
-            <div className="card rounded-4 h-100 shadow bg-light">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={post.image_url}
-                    className="img-fluid rounded-start"
-                    alt={post.title}
-                    style={{ height: "100%", objectFit: "cover" }}
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-5">
-                    <h5 className="card-title fw-semibold">
-                      {post.title.toUpperCase()}
-                    </h5>
-                    <p className="card-text">{post.body}</p>
-                    <p className="card-text">
-                      <strong className="text-dark">
-                        {new Date(post.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                          timeZone: "UTC",
-                        })}
-                      </strong>
-                    </p>
-                    <p className="card-text">
-                      <small className="text-muted">
-                        ${post.price} per couple
-                      </small>
-                    </p>
-                    <Link
-                      to={`/posts/${post.id}`}
-                      className="btn"
-                      style={{
-                        backgroundColor: "#FFC244",
-                        color: "black",
-                        borderColor: "#FFC244",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      View Details
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <EventCard post={post} />
           </div>
         ))}
       </div>
