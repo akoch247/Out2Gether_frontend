@@ -1,6 +1,5 @@
 // Shows all the details for a single event
 
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import useQuery from "../api/useQuery";
 import useMutation from "../api/UseMutation";
