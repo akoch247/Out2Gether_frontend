@@ -1,10 +1,10 @@
 /* Container styling for sidebar */
 .sidebar {
   width: 220px;
-  height: 100vh; /* will fit the height of the full screen regardless of content */
+  height: 100vh;
   background-color: #fff;
   border-right: 1px solid #ddd;
-  display: flex; /* allows to stack items on top of each other */
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
@@ -16,7 +16,7 @@
 /* Logo Styling */
 .brand {
   display: flex;
-  flex-direction: column; /* logo will be on top of name */
+  flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
 }
@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  text-decoration: none; /*remove the underline below link */
+  text-decoration: none;
   color: #000;
   font-weight: 500;
   padding: 10px 16px;
@@ -54,7 +54,7 @@
 
 /* Hovering effect for links */
 .nav-item:hover {
-  background-color: #ffe28a; /* Adds a light yellow highlight */
+  background-color: #ffe28a;
 }
 
 /* Style for current selected page link */
@@ -64,12 +64,12 @@
 }
 
 .main-content {
-  margin-left: 220px; /* This should match your sidebar's width */
-  padding-top: 30px; /* This should match your top bar's height */
-  padding-left: 2rem; /* This adds some inner spacing */
+  margin-left: 220px;
+  padding-top: 30px;
+  padding-left: 2rem;
   padding-right: 2rem;
 }
 
 body {
-  background-color: #f8f9fa;
+  background-color: #ebebeb;
 }
