@@ -1,7 +1,7 @@
 // The nav bar on the left that will have the logo, Nearby, Favorites, Explore, Checkout, and Logout buttons
 
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import "./Layout.css";
 import { BsCart, BsHeart } from "react-icons/bs";
@@ -21,9 +21,11 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       {/* Logo */}
-      <div className="brand">
-        <img src="/Out2GetherLogo.png" alt="Out2Gether Logo" width="120" />
-      </div>
+      <Link to="/">
+        <div className="brand">
+          <img src="/Out2GetherLogo.png" alt="Out2Gether Logo" width="120" />
+        </div>
+      </Link>
 
       {/* Navigation Links */}
       <div className="nav-links flex-grow-1 d-flex flex-column">
