@@ -8,7 +8,10 @@ export default function Topbar() {
 
   return (
     //topbar container for top of page
-    <div className="d-flex justify-content-end align-items-center py-4 py-3 border-bottom bg-light">
+    <div
+      className="d-flex justify-content-end align-items-center py-4 py-3 border-bottom"
+      style={{ backgroundColor: "#EBEBEB" }}
+    >
       <div className="d-flex gap-4 align-items-center">
         {/*Account Styling*/}
         {token && (
