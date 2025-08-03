@@ -7,7 +7,7 @@ export default function CartLayout() {
   const { items } = useCart();
 
   return (
-    <div className="cartPageContainer">
+    <div className="cartPageContainer bg-white rounded p-4">
       <header className="cartPageHeader">
         <h1>Checkout</h1>
       </header>
@@ -18,7 +18,10 @@ export default function CartLayout() {
               return <CartItem key={item.post_id} item={item} />;
             })
           ) : (
-            <h6>Your cart is empty! Explore some posts nearby <Link to={"/"}>here</Link>.</h6>
+            <h6>
+              Your cart is empty! Explore some posts nearby{" "}
+              <Link to={"/"}>here</Link>.
+            </h6>
           )}
         </div>
         <CartSummary />
