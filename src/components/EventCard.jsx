@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function EventCard({ post }) {
   return (
-    <div className="card rounded-4 h-100 shadow bg-light">
+    <div
+      className="card rounded-4 h-100 shadow"
+      style={{ backgroundColor: "#EBEBEB" }}
+    >
       <div className="row g-0">
         <div className="col-md-4">
           <img
