@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function EventCard({ post }) {
+export default function EventCard({ post, fromPath = "/" }) {
   return (
     <div
       className="card rounded-4 h-100 shadow"
@@ -39,6 +39,7 @@ export default function EventCard({ post }) {
             </p>
             <Link
               to={`/posts/${post.id}`}
+              state={{ from: fromPath }}
               className="btn"
               style={{
                 backgroundColor: "#FFC244",

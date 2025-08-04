@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
 import EventCard from "./EventCard";
 
-export default function EventGrid() {
+export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -32,11 +32,11 @@ export default function EventGrid() {
 
   return (
     <div className="bg-white rounded p-4">
-      <h1 className="mb-4">Date Spots Nearby</h1>
+      <h1 className="mb-4">{title}</h1>
       <div className="row g-4">
         {posts.map((post) => (
           <div key={post.id} className="col-12">
-            <EventCard post={post} />
+            <EventCard post={post} fromPath={fromPath} />
           </div>
         ))}
       </div>

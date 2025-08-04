@@ -1,6 +1,6 @@
 // Shows all the details for a single event
 
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import useQuery from "../api/useQuery";
 import useMutation from "../api/UseMutation";
 import { BsHeart } from "react-icons/bs";
@@ -14,6 +14,9 @@ export default function SinglePostPage() {
     "/cart",
     ["cart"]
   );
+
+  const routeLocation = useLocation();
+  const from = routeLocation.state?.from || "/";
 
   const handleAddToCart = () => {
     if (isAddingToCart || !post) return;
@@ -44,7 +47,7 @@ export default function SinglePostPage() {
   return (
     <div className="container bg-white rounded-3 shadow-sm p-4 my-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <Link to="/eventgrid" className="btn d-flex align-items-center">
+        <Link to={from} className="btn d-flex align-items-center">
           <IoArrowBackCircleOutline size={40} className="me-2" />
           Back to Listing
         </Link>
