@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink} from "react-router-dom";
 
 export default function MyPosts() {
     return (
@@ -6,12 +7,11 @@ export default function MyPosts() {
             <div className="post-form-wrapper p-4">
                 <h1 className="mb-5 pb-5">My posts</h1>
 
-                <div className="d-flex flex-row bd-highlight mb-3 justify-content-between">
-                    <button type="button" class="btn btn-info">Date</button>
-                    <button type="button" class="btn btn-info">Category</button>
-                    <button type="button" class="btn btn-info">Price</button>
+                <div className="d-inline-flex p-2">
+                    Post an Event
+                </div>
+                
                 </div>
             </div>
-        </div>
     )
 }
