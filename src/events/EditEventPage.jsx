@@ -3,8 +3,10 @@ import React from "react";
 
 export default function EditEventPage() {
     return (
-        <div className="p-3 border rounded bg-light">
-            <h1>EditEventPage</h1>
+        <div className="make-pot-container container mt-5 mb-5 bg-white rounded p-4">
+            <div className="post-form-wrapper p-4">
+                <h1 className="mb-5 pb-5">Edit event page</h1>
+            </div>
         </div>
     );
 }

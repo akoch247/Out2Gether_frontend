@@ -8,7 +8,9 @@ export default function AccountPage() {
     console.log("account page loaded")
     return (
         <>
+            <MyPosts />
             <CreateEventPage />
+            <EditEventPage />
         </>
     );
 }
