@@ -3,7 +3,7 @@
 import useQuery from "../api/useQuery";
 
 export default function Favorites() {
-  const { data: favorites, loading, error } = useQuery("/posts/favorites", "favorite_posts");
+  const { data: favorites, loading, error } = useQuery("/favorites", "favorite_posts");
 
   if (loading || !favorites) {
     return <>Loading...</>;

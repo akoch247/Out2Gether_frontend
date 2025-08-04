@@ -1,6 +1,6 @@
 // Lays out multiple event cards in a responsive grid/list
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
 import EventCard from "./EventCard";
 

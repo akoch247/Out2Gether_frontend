@@ -2,26 +2,16 @@
 
 import { useParams, Link, useLocation } from "react-router-dom";
 import useQuery from "../api/useQuery";
-import useMutation from "../api/UseMutation";
-import { BsHeart } from "react-icons/bs";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import FavoriteButton from "./FavoriteButton";
+import AddToCartButton from "./AddToCartButton";
 
 export default function SinglePostPage() {
   const { id } = useParams();
-  const { data: post, loading, error } = useQuery(`/posts/${id}`, ["post", id]);
-  const { mutate: addToCart, loading: isAddingToCart } = useMutation(
-    "POST",
-    "/cart",
-    ["cart"]
-  );
+  const { data: post, loading, error } = useQuery(`/posts/${id}`, "post");
 
   const routeLocation = useLocation();
   const from = routeLocation.state?.from || "/";
-
-  const handleAddToCart = () => {
-    if (isAddingToCart || !post) return;
-    addToCart({ post_id: post.id, quantity: 1 });
-  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <div className="alert alert-danger">{error.message}</div>;
@@ -51,9 +41,7 @@ export default function SinglePostPage() {
           <IoArrowBackCircleOutline size={40} className="me-2" />
           Back to Listing
         </Link>
-        <button className="btn">
-          <BsHeart size={30} />
-        </button>
+        <FavoriteButton post={post} />
       </div>
 
       <div className="row g-5">
@@ -77,19 +65,7 @@ export default function SinglePostPage() {
           <p>
             <strong>Price:</strong> ${price} per couple
           </p>
-          <button
-            onClick={handleAddToCart}
-            className="btn"
-            disabled={isAddingToCart}
-            style={{
-              backgroundColor: "#28BCB3",
-              color: "white",
-              borderColor: "#28BCB3",
-              fontWeight: "bold",
-            }}
-          >
-            {isAddingToCart ? "Adding..." : "Add to Cart"}
-          </button>
+          <AddToCartButton post={post} />
         </div>
       </div>
     </div>

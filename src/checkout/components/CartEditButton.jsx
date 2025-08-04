@@ -14,10 +14,10 @@ export default function CartEditButton({ item }) {
 
   return (
     <>
-      <span className="cartBtn editBtn" onClick={handleClick}>
+      <span className="cartBtn editBtn">
         <CartEditMenu item={item} />
         {item.quantity} Couple(s)
-        <LuPencil />
+        <LuPencil className="editBtn icon" onClick={handleClick} />
       </span>
     </>
   );

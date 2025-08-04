@@ -1,6 +1,5 @@
 // Provides the format and styling for how a single event will be displayed in the event grid
 
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function EventCard({ post, fromPath = "/" }) {
