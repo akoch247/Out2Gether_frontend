@@ -35,22 +35,17 @@ export default function Login() {
         className="login-container text-center p-5 shadow rounded-4 w-100 h-100 bg-white"
         style={{ maxWidth: "600px", maxHeight: "600px" }}
       >
-        {/* Logo Styling */}
         <img
           src="Out2GetherLogo.png"
           alt="Out2Gether Logo"
           width="180"
           className="mb-3"
         />
-
-        {/* Login Styling */}
         <h2 className="mb-4" style={{ fontWeight: "normal" }}>
           Login
         </h2>
 
-        {/* Form Styling */}
         <form onSubmit={handleSubmit}>
-          {/* Email Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
               htmlFor="email"
@@ -84,7 +79,6 @@ export default function Login() {
               />
             </div>
           </div>
-          {/* Password Styling */}
           <div
             className="mb-3 text-start"
             style={{ maxWidth: "350px", margin: "0 auto" }}
@@ -121,13 +115,9 @@ export default function Login() {
               />
             </div>
           </div>
-
-          {/* Error Message Styling */}
           {error && (
             <div className="text-danger text-center small mb-4">{error}</div>
           )}
-
-          {/* Login Button Styling */}
           <button
             type="submit"
             className="btn mt-4"
@@ -139,8 +129,6 @@ export default function Login() {
           >
             Sign In
           </button>
-
-          {/* Register Styling */}
           <div className="text-decoration-non text-info mt-2">
             <Link
               to="/register"

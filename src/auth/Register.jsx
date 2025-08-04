@@ -36,22 +36,17 @@ export default function Register() {
         className="login-container text-center p-5 shadow rounded-4 w-100 h-100 bg-white"
         style={{ maxWidth: "600px", maxHeight: "700px" }}
       >
-        {/* Logo Styling */}
         <img
           src="Out2GetherLogo.png"
           alt="Out2Gether Logo"
           width="180"
           className="mb-3"
         />
-
-        {/* Register Styling */}
         <h2 className="mb-4" style={{ fontWeight: "normal" }}>
           Register
         </h2>
 
-        {/* Form Styling */}
         <form action={handleSubmit}>
-          {/* Email Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
               htmlFor="email"
@@ -86,7 +81,6 @@ export default function Register() {
             </div>
           </div>
 
-          {/* Username Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
               htmlFor="username"
@@ -120,8 +114,6 @@ export default function Register() {
               />
             </div>
           </div>
-
-          {/* Password Styling */}
           <div className="mb-3" style={{ maxWidth: "350px", margin: "0 auto" }}>
             <label
               htmlFor="password"
@@ -155,13 +147,9 @@ export default function Register() {
               />
             </div>
           </div>
-
-          {/* Error Message Styling */}
           {error && (
             <div className="text-danger text-center small mb-4">{error}</div>
           )}
-
-          {/* Register Button Styling */}
           <button
             type="submit"
             className="btn mt-4"
@@ -173,8 +161,6 @@ export default function Register() {
           >
             Register
           </button>
-
-          {/* Register Styling */}
           <div className="text-decoration-none text-info mt-2">
             <Link
               to="/login"
