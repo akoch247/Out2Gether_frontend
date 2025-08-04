@@ -1,5 +1,4 @@
 import useMutation from "../api/UseMutation";
-import useQuery from "../api/useQuery";
 
 export default function AddToCartButton({ post }) {
   const { mutate: addToCart, loading: isAddingToCart } = useMutation(
@@ -7,18 +6,17 @@ export default function AddToCartButton({ post }) {
     "/cart",
     ["cart", "cartItem"]
   );
-  const { data: cartItem } = useQuery("/cart/" + post.id, "cartItem");
 
   const handleAddToCart = () => {
-    if (isAddingToCart || !post || cartItem) return;
-    addToCart({ post_id: post.id, quantity: 1 });
+    if (isAddingToCart || !post) return;
+    addToCart({ post_id: post.id });
   };
 
   return (
     <button
       onClick={handleAddToCart}
       className="btn"
-      disabled={isAddingToCart || cartItem}
+      disabled={isAddingToCart}
       style={{
         backgroundColor: "#28BCB3",
         color: "white",
@@ -26,11 +24,7 @@ export default function AddToCartButton({ post }) {
         fontWeight: "bold",
       }}
     >
-      {isAddingToCart
-        ? "Adding..."
-        : cartItem
-        ? "Already Added"
-        : "Add to Cart"}
+      {isAddingToCart ? "Adding..." : "Add to Cart"}
     </button>
   );
 }
