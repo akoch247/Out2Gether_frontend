@@ -9,8 +9,6 @@ export default function AccountPage() {
     return (
         <>
             <MyPosts />
-            <CreateEventPage />
-            <EditEventPage />
         </>
     );
 }

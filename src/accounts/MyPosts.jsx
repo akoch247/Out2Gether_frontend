@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function MyPosts() {
     return (
@@ -20,8 +21,9 @@ export default function MyPosts() {
                             Price
                         </Button>
                     </div>
-                    <Button className="fw-bold px-4 py-2 mt-2 mt-md-0"
-                        style={{backgroundColor: "#fbbf24", color: "#000", border: "none", borderRadius: "10px"}}>Post an Event</Button>
+                    <Link to="/createeventpage"
+                        className="fw-bold px-4 py-2 mt-2 mt-md-0"
+                        style={{backgroundColor: "#fbbf24", color: "#000", border: "none", borderRadius: "10px"}}>Post an Event</Link>
                 </div>
             </div>
     )
