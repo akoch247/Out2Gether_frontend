@@ -21,14 +21,17 @@ export default function Register() {
 
     try {
       await register({ username, email, password });
-      navigate("/eventgrid");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div
+      className="d-flex justify-content-center align-items-center vh-100"
+      style={{ backgroundColor: "#EBEBEB" }}
+    >
       <div
         className="login-container text-center p-5 shadow rounded-4 w-100 h-100 bg-white"
         style={{ maxWidth: "600px", maxHeight: "700px" }}

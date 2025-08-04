@@ -20,14 +20,17 @@ export default function Login() {
 
     try {
       await login(credentials);
-      navigate("/eventgrid");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light p-5">
+    <div
+      className="d-flex justify-content-center align-items-center vh-100 bg p-5"
+      style={{ backgroundColor: "#EBEBEB" }}
+    >
       <div
         className="login-container text-center p-5 shadow rounded-4 w-100 h-100 bg-white"
         style={{ maxWidth: "600px", maxHeight: "600px" }}
