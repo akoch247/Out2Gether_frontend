@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
 import EventCard from "./EventCard";
+import BlueButton from "./BlueButton";
+import FilterBar from "./Filterbar";
 
 export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   const [posts, setPosts] = useState([]);
@@ -33,6 +35,7 @@ export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   return (
     <div className="bg-white rounded p-4">
       <h1 className="mb-4">{title}</h1>
+      <FilterBar />
       <div className="row g-4">
         {posts.map((post) => (
           <div key={post.id} className="col-12">
@@ -41,33 +44,16 @@ export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
         ))}
       </div>
       <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
-        <button
-          className="btn"
-          style={{
-            backgroundColor: "#28BCB3",
-            color: "white",
-            borderColor: "#28BCB3",
-            fontWeight: "bold",
-          }}
-          onClick={() => setPage(page - 1)}
-          disabled={page === 1}
-        >
+        <BlueButton onClick={() => setPage(page - 1)} disabled={page === 1}>
           Previous Page
-        </button>
+        </BlueButton>
         <span>Page {page}</span>
-        <button
-          className="btn"
-          style={{
-            backgroundColor: "#28BCB3",
-            color: "white",
-            borderColor: "#28BCB3",
-            fontWeight: "bold",
-          }}
+        <BlueButton
           onClick={() => setPage(page + 1)}
           disabled={posts.length < limit}
         >
           Next Page
-        </button>
+        </BlueButton>
       </div>
     </div>
   );

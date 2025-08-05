@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import BlueButton from "../components/BlueButton";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
