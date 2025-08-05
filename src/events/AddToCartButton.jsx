@@ -6,21 +6,18 @@ export default function AddToCartButton({ post }) {
   const { mutate: addToCart, loading: isAddingToCart } = useMutation(
     "POST",
     "/cart",
-    ["cart", "cartItem"]
+    ["cart"]
   );
 
   const handleAddToCart = () => {
     if (isAddingToCart || !post) return;
-    addToCart({ post_id: post.id });
+    addToCart({ post_id: post.id, quantity: 1 });
   };
 
   return (
     <>
-      <BlueButton
-        onClick={handleAddToCart}
-        disabled={isAddingToCart || !!cartItem}
-      >
-        {isAddingToCart ? "Adding..." : cartItem ? "In Cart" : "Add to Cart"}
+      <BlueButton onClick={handleAddToCart} disabled={isAddingToCart}>
+        {isAddingToCart ? "Adding..." : "Add to Cart"}
       </BlueButton>
     </>
   );
