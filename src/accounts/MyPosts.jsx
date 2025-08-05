@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
 import EventCard from "../components/EventCard";
+import { BsCalendar2Date } from "react-icons/bs";
 
 export default function MyPosts( {title, fromPath}) {
     const [posts, setPosts] = useState([]);
@@ -12,6 +13,7 @@ export default function MyPosts( {title, fromPath}) {
   const { request } = useApi();
   const [page, setPage] = useState(1);
   const limit = 12;
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -27,6 +29,16 @@ export default function MyPosts( {title, fromPath}) {
     };
     fetchPosts();
   }, [request, page]);
+
+  const handleDelete = async (id) => {
+    try {
+        await request(`/events/${id}`, { method: "DELETE" });
+        setRefetch((prev) => !prev);
+    } catch (err) {
+        setError(err.message);
+    }
+  }
+
 
   if (loading) return <p>Loading events...</p>;
   if (error) return <div className="alert alert-danger">{error}</div>;
@@ -46,7 +58,8 @@ export default function MyPosts( {title, fromPath}) {
                                 borderColor: "#28BCB3",
                                 fontWeight: "bold",
                             }}>
-                        Date
+                                
+                                <BsCalendar2Date /> Date
                         </Button>
                         <Button 
                             className="btn-info text-white fm-semibold px-3 py-2 rounded-pill border-0" 
@@ -78,7 +91,7 @@ export default function MyPosts( {title, fromPath}) {
                     <div className="row g-4">
                         {posts.map((post) => (
                             <div key={post.id} className="col-12">
-                                <EventCard post={post} fromPath={fromPath} />
+                                <EventCard post={post} fromPath={"myposts"} onDelete={handleDelete} />
                             </div>
                          ))}
                     </div>

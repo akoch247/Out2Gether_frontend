@@ -1,9 +1,8 @@
 // Provides the format and styling for how a single event will be displayed in the event grid
 
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
-export default function EventCard({ post, fromPath = "/", onDelete }) {
+export default function EditEventCard({ post, fromPath = "/" }) {
   return (
     <div
       className="card rounded-4 h-100 shadow"
@@ -50,22 +49,6 @@ export default function EventCard({ post, fromPath = "/", onDelete }) {
             >
               View Details
             </Link>
-
-            {/* Edit and Delete buttons for MyPosts page*/}
-            {fromPath === "myposts" && (
-              <div className="d-flex justify-content-between align-items-center mb-5 flex-wrap">
-                <div className="d-flex flex-wrap gap-1">
-                  <Link to={`/editeventpage/`}>
-                    <Button variant="warning" className="fw-bold">
-                      Edit
-                    </Button>
-                  </Link>
-                  <Button variant="danger" className="fw-bold" onClick={() => onDelete(post.id)}>
-                      Delete
-                    </Button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
