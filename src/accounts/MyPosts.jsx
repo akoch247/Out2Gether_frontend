@@ -33,8 +33,8 @@ export default function MyPosts( {title, fromPath}) {
 
   const handleDelete = async (id) => {
     try {
-        await request(`/events/${id}`, { method: "DELETE" });
-        setRefetch((prev) => !prev);
+        await request(`/posts/${id}`, { method: "DELETE" });
+        setPosts((prevPosts) => prevPosts.filter(post => post.id !== id));
     } catch (err) {
         setError(err.message);
     }
