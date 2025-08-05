@@ -8,6 +8,7 @@ import { BsCalendar2Date } from "react-icons/bs";
 import { Button } from "react-bootstrap";
 import FilterBar from "../components/Filterbar";
 import YellowButton from "../components/YellowButton";
+import { TfiWrite } from "react-icons/tfi";
 
 export default function MyPosts({ title, fromPath }) {
   const [posts, setPosts] = useState([]);
@@ -51,8 +52,11 @@ export default function MyPosts({ title, fromPath }) {
 
       <div className="d-flex justify-content-between align-items-center mb-5 flex-wrap">
         <FilterBar />
-        <Link to="/createeventpage">
-          <YellowButton>Post an Event</YellowButton>
+        <Link to="/createeventpage" className="mb-4">
+          <YellowButton>
+            <TfiWrite className="me-2" />
+            Post an Event
+          </YellowButton>
         </Link>
       </div>
       <div className="bg-white rounded p-1 pt-0">
