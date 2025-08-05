@@ -1,4 +1,9 @@
 import useMutation from "../api/UseMutation";
+<<<<<<< Updated upstream
+=======
+import useQuery from "../api/useQuery";
+import BlueButton from "../components/BlueButton";
+>>>>>>> Stashed changes
 
 export default function AddToCartButton({ post }) {
   const { mutate: addToCart, loading: isAddingToCart } = useMutation(
@@ -13,6 +18,7 @@ export default function AddToCartButton({ post }) {
   };
 
   return (
+<<<<<<< Updated upstream
     <button
       onClick={handleAddToCart}
       className="btn"
@@ -26,5 +32,14 @@ export default function AddToCartButton({ post }) {
     >
       {isAddingToCart ? "Adding..." : "Add to Cart"}
     </button>
+=======
+    <BlueButton onClick={handleAddToCart} disabled={isAddingToCart || cartItem}>
+      {isAddingToCart
+        ? "Adding..."
+        : cartItem
+        ? "Already Added"
+        : "Add to Cart"}
+    </BlueButton>
+>>>>>>> Stashed changes
   );
 }
