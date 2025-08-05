@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
 import EventCard from "../components/EventCard";
 import { BsCalendar2Date } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 export default function MyPosts( {title, fromPath}) {
     const [posts, setPosts] = useState([]);
