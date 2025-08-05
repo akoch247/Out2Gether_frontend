@@ -2,6 +2,8 @@
 import { AddressAutofill } from "@mapbox/search-js-react";
 import { FiUpload } from "react-icons/fi";
 import { getYYYYMMDD } from "../util/time";
+import YellowButton from "../components/YellowButton";
+import BlueButton from "../components/BlueButton";
 
 const ACCESS_TOKEN =
   "pk.eyJ1IjoiZXRoYW50b3VwczA1IiwiYSI6ImNtZGl4aGRoajBnanIybXB2aHJqa2EyY3IifQ.l_QOmsBl_H91UFZbv7DZfw";
@@ -26,13 +28,11 @@ export default function CreateEventPage() {
     console.log("Country: ", country);
     console.log("Region: ", region);
     console.log("City: ", city);
-    
-
   };
 
   return (
     //Outer container for Make A Post
-    
+
     <div className="make-pot-container container mt-5 mb-5 bg-white rounded p-4">
       <div className="post-form-wrapper p-4">
         <h1 className="mb-5 pb-5">Make a Post</h1>
@@ -133,7 +133,7 @@ export default function CreateEventPage() {
                 <option>Outdoor</option>
                 <option>Food</option>
                 <option>Art</option>
-                <option>Budegt Friendly</option>
+                <option>Budget Friendly</option>
               </select>
             </div>
             <div className="col-md-3">
@@ -171,18 +171,18 @@ export default function CreateEventPage() {
               ></textarea>
             </div>
             <div className="mb-3 d-flex align-items-center">
-              <button type="button" className="btn btn-warning me-2">
+              <YellowButton
+                type="button"
+                className="btn btn-warning me-2 fw-normal"
+              >
                 <i className="bi bi-upload"></i> <FiUpload /> Upload
-              </button>
+              </YellowButton>
               <span>Add an image for your event</span>
             </div>
-            <button type="submit" className="btn btn-info text-white">
-              Post Event
-            </button>
+            <BlueButton type="submit">Post Event</BlueButton>
           </div>
         </form>
       </div>
     </div>
-  )
-  
+  );
 }
