@@ -1,8 +1,35 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useApi } from "../api/ApiContext";
+import EventCard from "../components/EventCard";
 
-export default function MyPosts() {
+export default function MyPosts( {title, fromPath}) {
+    const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { request } = useApi();
+  const [page, setPage] = useState(1);
+  const limit = 12;
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const data = await request(`/posts/${page}/${limit}`);
+        setPosts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+  }, [request, page]);
+
+  if (loading) return <p>Loading events...</p>;
+  if (error) return <div className="alert alert-danger">{error}</div>;
     return (
         <div className="make-pot-container container mt-1 bg-white rounded p-4">
             <div className="d-flex justify-content-between align-items-center">
@@ -43,9 +70,21 @@ export default function MyPosts() {
                         </Button>
                     </div>
                     <Link to="/createeventpage"
-                        className="fw-bold px-4 py-2 mt-2 mt-md-0 text-decoration-none"
+                        className="fw-bold px-4 py-2 mt-2 text-decoration-none"
                         style={{backgroundColor: "#fbbf24", color: "#000", border: "none", borderRadius: "10px"}}>Post an Event</Link>
                 </div>
+                <div className="bg-white rounded p-1 pt-0">
+                    <h1 className="mb-4">{title}</h1>
+                    <div className="row g-4">
+                        {posts.map((post) => (
+                            <div key={post.id} className="col-12">
+                                <EventCard post={post} fromPath={fromPath} />
+                            </div>
+                         ))}
+                    </div>
+
+                </div>
+
             </div>
     )
 }

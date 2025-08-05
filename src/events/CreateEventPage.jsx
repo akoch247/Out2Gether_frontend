@@ -26,11 +26,13 @@ export default function CreateEventPage() {
     console.log("Country: ", country);
     console.log("Region: ", region);
     console.log("City: ", city);
+    
+
   };
 
   return (
     //Outer container for Make A Post
-
+    
     <div className="make-pot-container container mt-5 mb-5 bg-white rounded p-4">
       <div className="post-form-wrapper p-4">
         <h1 className="mb-5 pb-5">Make a Post</h1>
@@ -181,5 +183,6 @@ export default function CreateEventPage() {
         </form>
       </div>
     </div>
-  );
+  )
+  
 }
