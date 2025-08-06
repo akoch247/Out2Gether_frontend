@@ -10,9 +10,9 @@ import CreateEventPage from "./events/CreateEventPage.jsx";
 import EditEventPage from "./events/EditEventPage.jsx";
 import MyPosts from "./accounts/MyPosts.jsx";
 import AccountPage from "./accounts/AccountPage.jsx";
-import NearbyPage from "./components/NearbyPage.jsx";
-import SinglePostPage from "./events/SinglePostPage.jsx";
-import ExplorePage from "./components/ExplorePage.jsx";
+import NearbyPage from "./events/nearby/NearbyPage.jsx";
+import SinglePostPage from "./events/components/SinglePostPage.jsx";
+import ExplorePage from "./events/explore/ExplorePage.jsx";
 
 export default function App() {
   return (

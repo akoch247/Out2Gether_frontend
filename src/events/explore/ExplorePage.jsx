@@ -1,6 +1,6 @@
-import { useAuth } from "../auth/AuthContext";
-import EventGrid from "./EventGrid";
-import Login from "../auth/Login";
+import { useAuth } from "../../auth/AuthContext";
+import EventGrid from "../components/EventGrid";
+import Login from "../../auth/Login";
 
 export default function ExplorePage() {
   const { token } = useAuth();

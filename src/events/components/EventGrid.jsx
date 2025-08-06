@@ -1,10 +1,10 @@
 // Lays out multiple event cards in a responsive grid/list
 
 import { useState, useEffect } from "react";
-import { useApi } from "../api/ApiContext";
+import { useApi } from "../../api/ApiContext";
 import EventCard from "./EventCard";
-import BlueButton from "./BlueButton";
-import FilterBar from "./Filterbar";
+import BlueButton from "../../components/BlueButton";
+import FilterBar from "../../components/Filterbar";
 
 export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   const [posts, setPosts] = useState([]);

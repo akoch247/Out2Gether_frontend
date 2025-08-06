@@ -1,6 +1,6 @@
 import { BsHeart, BsHeartFill } from "react-icons/bs";
-import useMutation from "../api/UseMutation";
-import useQuery from "../api/useQuery";
+import useMutation from "../../api/UseMutation";
+import useQuery from "../../api/useQuery";
 
 export default function FavoriteButton({ post }) {
   const { mutate: toggleFavorite, loading: isFavoriting } = useMutation(
@@ -18,7 +18,7 @@ export default function FavoriteButton({ post }) {
 
   return (
     <button className="btn" onClick={handleFavorite}>
-      {favorite && <BsHeartFill size={30} color="#F35242"/>}
+      {favorite && <BsHeartFill size={30} color="#F35242" />}
       {!favorite && <BsHeart size={30} />}
     </button>
   );

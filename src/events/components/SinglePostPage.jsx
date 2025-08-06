@@ -1,7 +1,7 @@
 // Shows all the details for a single event
 
 import { useParams, Link, useLocation } from "react-router-dom";
-import useQuery from "../api/useQuery";
+import useQuery from "../../api/useQuery";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import FavoriteButton from "./FavoriteButton";
 import AddToCartButton from "./AddToCartButton";

@@ -1,6 +1,6 @@
-import useMutation from "../api/UseMutation";
-import useQuery from "../api/useQuery";
-import BlueButton from "../components/BlueButton";
+import useMutation from "../../api/UseMutation";
+import useQuery from "../../api/useQuery";
+import BlueButton from "../../components/BlueButton";
 
 export default function AddToCartButton({ post }) {
   const { mutate: addToCart, loading: isAddingToCart } = useMutation(

@@ -3,7 +3,7 @@ import BlueButton from "../components/BlueButton";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useApi } from "../api/ApiContext";
-import EventCard from "../components/EventCard";
+import EventCard from "../events/components/EventCard";
 import { BsCalendar2Date } from "react-icons/bs";
 import { Button } from "react-bootstrap";
 import FilterBar from "../components/Filterbar";

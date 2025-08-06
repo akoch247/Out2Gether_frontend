@@ -2,8 +2,8 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import YellowButton from "./YellowButton";
-import BlueButton from "./BlueButton";
+import YellowButton from "../../components/YellowButton";
+import BlueButton from "../../components/BlueButton";
 
 export default function EventCard({ post, fromPath = "/", onDelete }) {
   return (
