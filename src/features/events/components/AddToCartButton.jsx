@@ -5,7 +5,7 @@ export default function AddToCartButton({ post }) {
   const { mutate: addToCart, loading: isAddingToCart } = useMutation(
     "POST",
     "/cart",
-    ["cart", "cartQuantity"]
+    ["cart", "cartButton"]
   );
 
   const handleAddToCart = () => {
