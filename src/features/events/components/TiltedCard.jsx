@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import "./TiltedCard.css";
+
 
 const springValues = {
   damping: 30,
@@ -18,7 +18,7 @@ export default function TiltedCard({
   imageHeight = "300px",
   imageWidth = "300px",
   scaleOnHover = 1.1,
-  rotateAmplitude = 14,
+  rotateAmplitude = 1,
   showMobileWarning = true,
   showTooltip = true,
   overlayContent = null,
