@@ -2,6 +2,8 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import YellowButton from "./YellowButton";
+import BlueButton from "./BlueButton";
 
 export default function EventCard({ post, fromPath = "/", onDelete }) {
   return (
@@ -37,32 +39,33 @@ export default function EventCard({ post, fromPath = "/", onDelete }) {
             <p className="card-text">
               <small className="text-muted">${post.price} per couple</small>
             </p>
-            <Link
-              to={`/posts/${post.id}`}
-              state={{ from: fromPath }}
-              className="btn"
-              style={{
-                backgroundColor: "#FFC244",
-                color: "black",
-                borderColor: "#FFC244",
-                fontWeight: "bold",
-              }}
-            >
-              View Details
-            </Link>
-
-            {/* Edit and Delete buttons for MyPosts page*/}
+            <YellowButton>
+              <Link
+                to={`/posts/${post.id}`}
+                state={{ from: fromPath }}
+                className="text-decoration-none text-dark"
+              >
+                View Details
+              </Link>
+            </YellowButton>
             {fromPath === "myposts" && (
               <div className="d-flex justify-content-between align-items-center mb-5 flex-wrap">
                 <div className="d-flex flex-wrap gap-1">
-                  <Link to={`/editeventpage/`}>
-                    <Button variant="warning" className="fw-bold">
+                  <BlueButton>
+                    <Link
+                      to={`/editeventpage/`}
+                      className="text-decoration-none text-dark"
+                    >
                       Edit
-                    </Button>
-                  </Link>
-                  <Button variant="danger" className="fw-bold" onClick={() => onDelete(post.id)}>
-                      Delete
-                    </Button>
+                    </Link>
+                  </BlueButton>
+                  <Button
+                    variant="danger"
+                    className="fw-bold"
+                    onClick={() => onDelete(post.id)}
+                  >
+                    Delete
+                  </Button>
                 </div>
               </div>
             )}
