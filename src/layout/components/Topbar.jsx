@@ -15,7 +15,8 @@ export default function Topbar() {
       className="topbar d-flex gap-3 align-items-center py-4 py-3 border-bottom"
       style={{ backgroundColor: "#EBEBEB" }}
     >
-      <SearchForm />
+        <SearchForm />
+    
 
       <div className="items d-flex gap-4 align-items-center me-md-5">
         {token && (

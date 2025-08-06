@@ -39,7 +39,7 @@ export function SearchProvider({ children }) {
   };
 
   return (
-    <SearchContext.Provider value={exports}>{children}</SearchContext.Provider>
+      <SearchContext.Provider value={exports}>{children}</SearchContext.Provider>
   );
 }
 
