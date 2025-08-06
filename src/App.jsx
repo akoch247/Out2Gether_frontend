@@ -20,8 +20,6 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<NearbyPage />} />
           <Route path="*" element={<Error404 />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
           <Route element={<RequireAuth />}>
             <Route path="/posts/:id" element={<SinglePostPage />} />
             <Route path="/favorites" element={<Favorites />} />
@@ -32,6 +30,8 @@ export default function App() {
             <Route path="/cart" element={<CartPage />} />
           </Route>
         </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );
