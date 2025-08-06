@@ -1,0 +1,20 @@
+.favoritesPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5ch;
+}
+
+.favoritePosts {
+  display: flex;
+  flex-direction: row;
+  gap: 3.5ch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .favoritesPageContainer {
+    justify-content: center;
+    gap: 1ch;
+  }
+}

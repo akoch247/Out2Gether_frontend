@@ -39,16 +39,25 @@ Figma Wireframe:
 File Structure:
 
 - scr/
-     - accounts/
-     - api/
-     - assets/
-     - auth/
-     - checkout/
      - components/
-     - events/
+     - context/
      - favorites/
+          - components/
+     - features/
+          - accounts/
+               - auth/
+          - checkout/
+               - components/
+                    - edit/
+          - events/
+               - components/
+               - explore/
+               - nearby/
      - hooks/
      - layout/
+          - components/
+          - style/
+     - util/
 - App.jsx
 - App.css
 - Error404.jsx

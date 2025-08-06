@@ -1,5 +1,4 @@
 // The main component that reuses DropdownFilter.jsx multiple times to create the filter bar for date, category, and price
-import React from "react";
 import BlueRoundedButton from "./BlueRoundedButton";
 import { LuCalendarHeart } from "react-icons/lu";
 import { BiCategory } from "react-icons/bi";
