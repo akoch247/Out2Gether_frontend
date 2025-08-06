@@ -1,5 +1,5 @@
 /* Container styling for sidebar */
-.sidebar {
+.sidebar.active {
   width: 220px;
   height: 100vh;
   background-color: #fff;
@@ -11,6 +11,10 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
   overflow: auto;
   position: fixed;
+}
+
+.sidebar.inactive {
+  display: none;
 }
 
 /* Logo Styling */

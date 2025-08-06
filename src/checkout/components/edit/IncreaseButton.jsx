@@ -4,6 +4,7 @@ import useMutation from "../../../api/UseMutation";
 export default function IncreaseButton({ item }) {
   const { mutate, loading } = useMutation("PUT", "/cart/" + item.post_id, [
     "cart",
+    "cartButton",
   ]);
 
   const handleClick = (event) => {

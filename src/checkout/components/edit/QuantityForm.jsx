@@ -3,6 +3,7 @@ import useMutation from "../../../api/UseMutation";
 export default function QuantityForm({ item }) {
   const { mutate, loading } = useMutation("PUT", "/cart/" + item.post_id, [
     "cart",
+    "cartButton",
   ]);
 
   const handleSubmit = (formData) => {

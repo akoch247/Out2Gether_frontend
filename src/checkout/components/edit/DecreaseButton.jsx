@@ -4,6 +4,7 @@ import useMutation from "../../../api/UseMutation";
 export default function DecreaseButton({ item }) {
   const { mutate, loading } = useMutation("PUT", "/cart/" + item.post_id, [
     "cart",
+    "cartButton",
   ]);
 
   const handleClick = (event) => {
