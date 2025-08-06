@@ -1,8 +1,8 @@
 // The nav bar on the top that will have the Account and Cart buttons
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
-import { useAuth } from "../auth/AuthContext";
-import CartButton from "./components/CartButton";
+import { useAuth } from "../../auth/AuthContext";
+import CartButton from "./CartButton";
 
 export default function Topbar() {
   const { token } = useAuth();

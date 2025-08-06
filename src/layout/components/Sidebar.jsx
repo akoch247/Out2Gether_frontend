@@ -1,9 +1,7 @@
 // The nav bar on the left that will have the logo, Nearby, Favorites, Explore, Checkout, and Logout buttons
 
-import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/AuthContext";
-import "./Layout.css";
+import { useAuth } from "../../auth/AuthContext";
 import { BsCart, BsHeart } from "react-icons/bs";
 import { MdOutlineExplore } from "react-icons/md";
 import { IoIosLogOut } from "react-icons/io";
@@ -19,7 +17,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="sidebar">
+    <div className="sidebar active">
       {/* Logo */}
       <Link to="/">
         <div className="brand">
