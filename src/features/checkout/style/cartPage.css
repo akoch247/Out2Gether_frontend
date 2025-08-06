@@ -1,0 +1,30 @@
+.cartPageContent {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10ch;
+  width: 100%;
+}
+
+.cartPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3ch;
+}
+
+.cartPageContainer .cartPageHeader {
+  align-self: left;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
+}
+
+@media (max-width: 768px) {
+  .cartPageContent {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5ch;
+  }
+}

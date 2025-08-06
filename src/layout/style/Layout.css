@@ -1,0 +1,89 @@
+/* Container styling for sidebar */
+.sidebar.active {
+  width: 220px;
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+  position: fixed;
+  z-index: 1000;
+}
+
+.sidebar.inactive {
+  display: none;
+}
+
+/* Logo Styling */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* Nav-link styling */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 10px 16px;
+  margin: 0 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Hovering effect for links */
+.nav-item:hover {
+  background-color: #ffe28a;
+}
+
+/* Style for current selected page link */
+.nav-item.active {
+  background-color: #ffc244;
+  font-weight: 600;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding-top: 30px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+body {
+  background-color: #ebebeb;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 30px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

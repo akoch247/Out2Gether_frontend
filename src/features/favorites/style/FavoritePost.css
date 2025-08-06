@@ -1,0 +1,53 @@
+.favoritePostCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 395px;
+  max-height: 444px;
+  background-color: #ebebeb;
+  border-radius: 24px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.30);
+  transition: ease-in-out box-shadow 0.3s;
+}
+
+.favoritePostCard:hover {
+  cursor: pointer;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.70);
+
+}
+
+.favoritePostCard header img {
+  max-width: 395px;
+  min-height: 296px;
+  max-height: 296px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.favoritePostCardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.favoritePostCardDetails {
+  padding: 16px;
+}
+
+.favoritePostCardDetails h3 {
+  font-size: 20px;
+}
+
+.favoritePostCardDetails p {
+  font-size: 16px;
+  color: #6d6d6d;
+}
+
+.favoritePostButtons {
+  font-size: 30px;
+  color: #f35242;
+  align-self: flex-end;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}

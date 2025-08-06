@@ -1,0 +1,65 @@
+.cartSummaryContainer {
+  display: flex;
+  flex-direction: column;
+  width: 337px;
+  height: 271px;
+  max-height: 271px;
+  max-width: 337px;
+  background-color: #ebebeb;
+  padding: 15px;
+  border-radius: 20px;
+  gap: 10px;
+  justify-content: center;
+  /* position: fixed;
+  margin-left: 40%; TODO see if we want it to follow the scroll*/ 
+}
+
+.cartSummaryHeader {
+  margin-bottom: 15px;
+}
+
+.cartSummaryHeader h1 {
+  font-size: 20px;
+}
+
+.cartSummaryDetails * {
+  margin: 0px;
+  padding: 0px;
+}
+
+.cartSummaryDetails {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.subTotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.paymentBtn {
+  width: 289px;
+  height: 48px;
+  background-color: #28bcb3;
+  border-color: #28bcb3;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .cartSummaryContainer {
+    align-self: center;
+  }
+}
