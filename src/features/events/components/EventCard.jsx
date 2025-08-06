@@ -37,7 +37,9 @@ export default function EventCard({ post, fromPath = "/", onDelete }) {
               </strong>
             </p>
             <p className="card-text">
-              <small className="text-muted">${post.price} per couple</small>
+              <small className="text-muted">
+                  ${post.price} per couple
+                </small>
             </p>
             <YellowButton>
               <Link

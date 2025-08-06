@@ -5,6 +5,7 @@ import { useApi } from "../../../context/ApiContext";
 import EventCard from "./EventCard";
 import BlueButton from "../../../components/BlueButton";
 import FilterBar from "../../../components/Filterbar";
+import TiltedCard from "./TiltedCard";
 
 export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   const [posts, setPosts] = useState([]);
@@ -33,13 +34,26 @@ export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   if (error) return <div className="alert alert-danger">{error}</div>;
 
   return (
-    <div className="bg-white rounded p-4">
+     <div className="bg-white rounded p-4">
       <h1 className="mb-4">{title}</h1>
       <FilterBar />
       <div className="row g-4">
         {posts.map((post) => (
           <div key={post.id} className="col-12">
-            <EventCard post={post} fromPath={fromPath} />
+            <TiltedCard
+              containerHeight="auto"
+              containerWidth="100%"
+              imageHeight="auto"
+              imageWidth="100%"
+              rotateAmplitude={12}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent={true}
+              overlayContent={<EventCard post={post} fromPath={fromPath} />}
+            >
+              <EventCard post={post} fromPath={fromPath} />
+            </TiltedCard>
           </div>
         ))}
       </div>
