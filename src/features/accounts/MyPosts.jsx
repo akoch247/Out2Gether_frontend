@@ -1,4 +1,3 @@
-import React from "react";
 import BlueButton from "../../components/BlueButton";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -22,7 +21,7 @@ export default function MyPosts({ title, fromPath }) {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const data = await request(`/posts/${page}/${limit}`);
+        const data = await request(`/users/posts/${page}/${limit}`);
         setPosts(data);
       } catch (err) {
         setError(err.message);
