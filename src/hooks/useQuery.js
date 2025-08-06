@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/ApiContext";
 
-/** Queries the API and returns the data, loading status, and error message. */
 export default function useQuery(resource, tag) {
   const { request, provideTag } = useApi();
 
@@ -9,7 +8,6 @@ export default function useQuery(resource, tag) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Store the last successful data result
   const previousData = useRef();
 
   const query = async () => {
@@ -17,12 +15,12 @@ export default function useQuery(resource, tag) {
     setError(null);
     try {
       const result = await request(resource);
-      previousData.current = result; // Save latest successful data
+      previousData.current = result;
       setData(result);
     } catch (e) {
       console.error(e);
       setError(e.message);
-      setData(previousData.current); // Fallback to previous data on error
+      setData(previousData.current);
     } finally {
       setLoading(false);
     }
@@ -35,7 +33,7 @@ export default function useQuery(resource, tag) {
   }, [resource]);
 
   return {
-    data: data ?? previousData.current, // Use fallback if data is temporarily undefined
+    data: data ?? previousData.current,
     loading,
     error,
   };
