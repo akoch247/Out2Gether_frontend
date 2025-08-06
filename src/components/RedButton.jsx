@@ -1,19 +1,27 @@
 // A consistent-looking rectangular red button that is clickable
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function RedButton({ children, ...props }) {
+export default function RedButton({
+  as: Component = "button",
+  children,
+  className,
+  style,
+  ...props
+}) {
   return (
-    <button
-      type="button"
-      className="btn"
+    <Component
+      className={`btn ${className || ""}`}
       style={{
         backgroundColor: "#F35242",
         color: "white",
         borderColor: "#F35242",
         fontWeight: "bold",
+        ...style,
       }}
       {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 }
