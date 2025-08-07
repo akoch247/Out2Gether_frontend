@@ -92,6 +92,11 @@ export default function CreateEventPage() {
                 id="title"
                 placeholder="Enter a title"
                 required
+                onChange={(e) =>
+                  setFormData((prev) => {
+                    return { ...prev, title: e.target.value };
+                  })
+                }
                 style={{
                   border: "2px solid #333",
                   boxShadow: "none",
@@ -112,6 +117,11 @@ export default function CreateEventPage() {
                   className="form-control"
                   id="location"
                   placeholder="Enter an address"
+                  onChange={(e) =>
+                    setFormData((prev) => {
+                      return { ...prev, location: e.target.value };
+                    })
+                  }
                   required
                   style={{
                     border: "2px solid #333",
@@ -155,6 +165,11 @@ export default function CreateEventPage() {
                 className="form-control"
                 id="time"
                 placeholder="Choose a time"
+                onChange={(e) =>
+                  setFormData((prev) => {
+                    return { ...prev, time: e.target.value };
+                  })
+                }
                 required
                 style={{
                   border: "2px solid #333",
@@ -171,6 +186,11 @@ export default function CreateEventPage() {
                 className="form-select"
                 id="category"
                 required
+                onChange={(e) =>
+                  setFormData((prev) => {
+                    return { ...prev, category: e.target.value };
+                  })
+                }
                 style={{
                   border: "2px solid #333",
                   boxShadow: "none",
@@ -194,6 +214,11 @@ export default function CreateEventPage() {
                 id="price"
                 placeholder="Set a couple's price"
                 required
+                onChange={(e) =>
+                  setFormData((prev) => {
+                    return { ...prev, price: e.target.value };
+                  })
+                }
                 style={{
                   border: "2px solid #333",
                   boxShadow: "none",
@@ -211,6 +236,11 @@ export default function CreateEventPage() {
                 rows="5"
                 placeholder="Tell everyone what your event is all about!"
                 required
+                onChange={(e) =>
+                  setFormData((prev) => {
+                    return { ...prev, description: e.target.value };
+                  })
+                }
                 style={{
                   border: "2px solid #333",
                   boxShadow: "none",
