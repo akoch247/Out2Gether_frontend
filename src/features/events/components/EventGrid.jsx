@@ -1,30 +1,25 @@
 // Lays out multiple event cards in a responsive grid/list
 
-import { useState, useEffect } from "react";
-import { useApi } from "../../../context/ApiContext";
 import EventCard from "./EventCard";
 import BlueButton from "../../../components/BlueButton";
 import TiltedCard from "./TiltedCard";
-import useQuery from "../../../hooks/useQuery";
 import FilterBar from "../../../components/filter/Filterbar";
+import { useFilter } from "../../../context/FilterContext";
 
 export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
-  const { request } = useApi();
-  const [page, setPage] = useState(1);
-  const limit = 10;
-  const {
-    data: posts,
-    loading,
-    error
-  } = useQuery(`/posts/${page}/${limit}`, "posts", [page]);
+  return (
+    <FilterBar>
+      <EventList title={title} fromPath={fromPath} />
+    </FilterBar>
+  );
+}
 
-  if (loading || !posts) return <p>Loading events...</p>;
-  if (error) return <div className="alert alert-danger">{error}</div>;
+function EventList({ title, fromPath }) {
+  const { posts, page, setPage, limit } = useFilter();
 
   return (
-     <div className="bg-white rounded p-4">
+    <div className="bg-white rounded p-4">
       <h1 className="mb-4">{title}</h1>
-      <FilterBar />
       <div className="row g-4">
         {posts.map((post) => (
           <div key={post.id} className="col-12">

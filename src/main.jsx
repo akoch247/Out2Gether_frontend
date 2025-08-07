@@ -13,9 +13,7 @@ createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <ApiProvider>
         <SearchProvider>
-          <FilterProvider>
-            <App />
-          </FilterProvider>
+          <App />
         </SearchProvider>
       </ApiProvider>
     </AuthProvider>

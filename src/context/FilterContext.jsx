@@ -6,30 +6,46 @@ const FilterContext = createContext();
 export function FilterProvider({ children }) {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState({
-    category: "",
+    categories: [],
     dateMin: "",
     dateMax: "",
     priceMin: "",
     priceMax: "",
   });
-  const { data: posts, loading } = useQuery(
-    `/posts/filter?page=${page}&limit=10&minDate=${filter.dateMin}&maxDate=${filter.dateMax}&minPrice=${filter.priceMin}&maxPrice=${filter.priceMax}`,
-    "filter",
-    [page]
-  );
+  const limit = 10;
+  const resource = createResource({ ...filter, page, limit });
+  const { data: posts, loading } = useQuery(resource, "filter", [page, filter]);
+
+  if (loading || !posts) return <></>;
 
   const exports = {
+    page,
+    setPage,
+    limit,
+    posts,
     filter,
     setFilter,
   };
-
-  if (loading || !posts) return <></>;
 
   console.log("Filtered Posts: ", posts);
 
   return (
     <FilterContext.Provider value={exports}>{children}</FilterContext.Provider>
   );
+}
+
+function createResource({
+  page,
+  limit,
+  categories,
+  dateMin,
+  dateMax,
+  priceMin,
+  priceMax,
+}) {
+  const categoryString = categories.join(",");
+
+  return `/posts/filter?page=${page}&limit=${limit}&minDate=${dateMin}&maxDate=${dateMax}&minPrice=${priceMin}&maxPrice=${priceMax}&categoryIds=${categoryString}`;
 }
 
 export function useFilter() {
