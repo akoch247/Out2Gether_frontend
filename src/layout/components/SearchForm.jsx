@@ -7,32 +7,32 @@ export default function SearchForm() {
   const { searchRef, setViewingSearch, setSearch } = useSearch();
 
   return (
-      <div id="postSearchContainer ">
-        <input
-          className="form-control rounded-pill"
-          name="search"
-          type="text"
-          placeholder="Search for an event..."
-          autoComplete="off"
-          required
-          onClick={() => setViewingSearch(true)}
-          onChange={(e) => setSearch(e.target.value)}
-          ref={searchRef}
+    <div id="postSearchContainer ">
+      <input
+        className="form-control rounded-pill"
+        name="search"
+        type="text"
+        placeholder="Search for an event..."
+        autoComplete="off"
+        required
+        onClick={() => setViewingSearch(true)}
+        onChange={(e) => setSearch(e.target.value)}
+        ref={searchRef}
+      />
+      <div style={{ position: "relative" }}>
+        <FaSearch
+          style={{
+            position: "absolute",
+            left: "180px",
+            bottom: "0px",
+            transform: "translateY(-50%)",
+            fontSize: "18px",
+            color: "gray",
+          }}
         />
-        <div style={{ position: "relative" }}>
-          <FaSearch 
-            style={{
-              position: "absolute",
-              left: "180px",
-              bottom: "0px",
-              transform: "translateY(-50%)",
-              fontSize: "18px",
-              color: "gray",
-            }}
-          />
-        </div>
-        
-        <SearchMenu />
       </div>
+
+      <SearchMenu />
+    </div>
   );
 }

@@ -4,30 +4,73 @@ import { FiUpload } from "react-icons/fi";
 import { getYYYYMMDD } from "../../util/time";
 import YellowButton from "../../components/YellowButton";
 import BlueButton from "../../components/BlueButton";
+import { useState } from "react";
+import useMutation from "../../hooks/useMutation";
 
 const ACCESS_TOKEN =
   "pk.eyJ1IjoiZXRoYW50b3VwczA1IiwiYSI6ImNtZGl4aGRoajBnanIybXB2aHJqa2EyY3IifQ.l_QOmsBl_H91UFZbv7DZfw";
 
 export default function CreateEventPage() {
+  const [formData, setFormData] = useState({
+    title: "",
+    body: "",
+    price: "",
+    time: "",
+    date: "",
+    category_id: "",
+    image_url: "",
+    location: {},
+  });
+  const { mutate: createPost, loading } = useMutation("POST", "/posts", [
+    "posts",
+  ]);
+
+  //  * @param {string} params.address
+  //  * @param {string} params.country
+  //  * @param {string} params.state
+  //  * @param {string} params.city
+  //  * @param {text} params.zip_code
+  //  * @param {number} params.geolocation_longitude (e.g., -32.0715)
+  //  * @param {number} params.geolocation_latitude (e.g., 55.3215)
+
   const handleAutofillRetrieve = (response) => {
     const feature = response.features[0];
+    if (!feature) {
+      return;
+    }
     const coords = feature.geometry.coordinates;
     const address = feature.properties.feature_name;
     const zip_code = feature.properties.postcode;
     const region = feature.properties.address_level1;
     const city = feature.properties.address_level2;
     const country = feature.properties.country;
-    const longitude = coords[0];
-    const latitude = coords[1];
+    const geolocation_longitude = coords[0];
+    const geolocation_latitude = coords[1];
 
-    console.log(feature);
-    console.log("Long: ", longitude);
-    console.log("Long: ", latitude);
-    console.log("Address: ", address);
-    console.log("ZIP Code: ", zip_code);
-    console.log("Country: ", country);
-    console.log("Region: ", region);
-    console.log("City: ", city);
+    setFormData((prev) => {
+      return {
+        ...prev,
+        location: {
+          address,
+          country,
+          region,
+          city,
+          zip_code,
+          geolocation_longitude,
+          geolocation_latitude,
+        },
+      };
+    });
+  };
+
+  console.log("Form Data: ", formData);
+
+  const handleSubmit = (e) => {
+    createPost({
+      ...formData,
+      ...formData.location,
+      location: null,
+    });
   };
 
   return (
@@ -37,7 +80,7 @@ export default function CreateEventPage() {
       <div className="post-form-wrapper p-4">
         <h1 className="mb-5 pb-5">Make a Post</h1>
 
-        <form>
+        <form action={handleSubmit}>
           <div className="row mb-3">
             <div className="col-md-6">
               <label htmlFor="title" className="form-label">
@@ -91,6 +134,11 @@ export default function CreateEventPage() {
                 placeholder="Choose a date"
                 min={getYYYYMMDD()}
                 required
+                onChange={(e) =>
+                  setFormData((prev) => {
+                    return { ...prev, date: e.target.value };
+                  })
+                }
                 style={{
                   border: "2px solid #333",
                   boxShadow: "none",
