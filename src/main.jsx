@@ -6,13 +6,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { ApiProvider } from "./context/ApiContext.jsx";
 import { SearchProvider } from "./context/SearchContext.jsx";
+import { FilterProvider } from "./context/FilterContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <ApiProvider>
         <SearchProvider>
-          <App />
+          <FilterProvider>
+            <App />
+          </FilterProvider>
         </SearchProvider>
       </ApiProvider>
     </AuthProvider>
