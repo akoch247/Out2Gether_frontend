@@ -7,7 +7,7 @@ export default function CartLayout() {
   const { items } = useCart();
 
   return (
-    <div className="cartPageContainer p-4">
+    <div className="cartPageContainer bg-white rounded p-4">
       <header className="cartPageHeader">
         <h1>Checkout</h1>
       </header>

@@ -73,6 +73,8 @@
   padding-top: 30px;
   padding-left: 2rem;
   padding-right: 2rem;
+  background-color: #ebebeb;
+  min-height: 100vh;
 }
 
 body {

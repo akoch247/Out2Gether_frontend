@@ -1,6 +1,6 @@
 .cartPageContent {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 10ch;
   width: 100%;
 }

@@ -21,14 +21,14 @@ export default function Favorites() {
   }
 
   return (
-    <div className="favoritesPageContainer">
+    <div className="favoritesPageContainer bg-white rounded p-4">
       <header>
         <h1>Favorites</h1>
         <FilterBar />
       </header>
       <div className="favoritePosts">
         {favorites.map((favorite) => {
-          return <FavoritePost key={favorite.post_id} favorite={favorite}/>;
+          return <FavoritePost key={favorite.post_id} favorite={favorite} />;
         })}
       </div>
     </div>
