@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useApi } from "../context/ApiContext";
 
-export default function useQuery(resource, tag) {
+export default function useQuery(resource, tag, dependencies = []) {
   const { request, provideTag } = useApi();
 
   const [data, setData] = useState();
@@ -30,7 +30,7 @@ export default function useQuery(resource, tag) {
     if (!resource) return;
     if (tag) provideTag(tag, query);
     query();
-  }, [resource]);
+  }, dependencies);
 
   return {
     data: data ?? previousData.current,

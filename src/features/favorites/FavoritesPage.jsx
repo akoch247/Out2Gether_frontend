@@ -1,6 +1,6 @@
 // Shows a list of events the user has favorited
 
-import FilterBar from "../../components/Filterbar";
+import FilterBar from "../../components/filter/Filterbar";
 import useQuery from "../../hooks/useQuery";
 import FavoritePost from "./component/FavoritePost";
 import "./style/FavoritesPage.css";

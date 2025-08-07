@@ -4,33 +4,21 @@ import { useState, useEffect } from "react";
 import { useApi } from "../../../context/ApiContext";
 import EventCard from "./EventCard";
 import BlueButton from "../../../components/BlueButton";
-import FilterBar from "../../../components/Filterbar";
 import TiltedCard from "./TiltedCard";
+import useQuery from "../../../hooks/useQuery";
+import FilterBar from "../../../components/filter/Filterbar";
 
 export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const { request } = useApi();
   const [page, setPage] = useState(1);
-  const limit = 12;
+  const limit = 10;
+  const {
+    data: posts,
+    loading,
+    error
+  } = useQuery(`/posts/${page}/${limit}`, "posts", [page]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      try {
-        const data = await request(`/posts/${page}/${limit}`);
-        setPosts(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPosts();
-  }, [request, page]);
-
-  if (loading) return <p>Loading events...</p>;
+  if (loading || !posts) return <p>Loading events...</p>;
   if (error) return <div className="alert alert-danger">{error}</div>;
 
   return (

@@ -1,17 +1,31 @@
 import { useContext, createContext, useState } from "react";
+import useQuery from "../hooks/useQuery";
 
 const FilterContext = createContext();
 
 export function FilterProvider({ children }) {
-  const [minimumDate, setMinimumDate] = useState();
-  const [maximumDate, setMaximumDate] = useState();
+  const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState({
+    category: "",
+    dateMin: "",
+    dateMax: "",
+    priceMin: "",
+    priceMax: "",
+  });
+  const { data: posts, loading } = useQuery(
+    `/posts/filter?page=${page}&limit=10&minDate=${filter.dateMin}&maxDate=${filter.dateMax}&minPrice=${filter.priceMin}&maxPrice=${filter.priceMax}`,
+    "filter",
+    [page]
+  );
 
   const exports = {
-    minimumDate,
-    setMinimumDate,
-    maximumDate,
-    setMaximumDate,
+    filter,
+    setFilter,
   };
+
+  if (loading || !posts) return <></>;
+
+  console.log("Filtered Posts: ", posts);
 
   return (
     <FilterContext.Provider value={exports}>{children}</FilterContext.Provider>

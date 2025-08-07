@@ -21,7 +21,7 @@ export default function CreateEventPage() {
     image_url: "",
     location: {},
   });
-  const { mutate: createPost, loading } = useMutation("POST", "/posts", [
+  const { mutate: createPost } = useMutation("POST", "/posts", [
     "posts",
   ]);
 

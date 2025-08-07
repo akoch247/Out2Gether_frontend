@@ -5,7 +5,7 @@ import { useApi } from "../../context/ApiContext";
 import EventCard from "../events/components/EventCard";
 import { BsCalendar2Date } from "react-icons/bs";
 import { Button } from "react-bootstrap";
-import FilterBar from "../../components/Filterbar";
+import FilterBar from "../../components/filter/Filterbar";
 import YellowButton from "../../components/YellowButton";
 import { TfiWrite } from "react-icons/tfi";
 
