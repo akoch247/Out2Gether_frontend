@@ -23,7 +23,7 @@ export default function Favorites() {
   return (
     <div className="favoritesPageContainer bg-white rounded p-4">
       <header>
-        <h1>Favorites</h1>
+        <h1 className="mb-4">Favorites</h1>
         <FilterBar />
       </header>
       <div className="favoritePosts">
