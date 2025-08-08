@@ -1,6 +1,4 @@
 import { useCart } from "../../CartContext";
-import DecreaseButton from "./DecreaseButton";
-import IncreaseButton from "./IncreaseButton";
 import QuantityForm from "./QuantityForm";
 
 export default function CartEditMenu({ item }) {
@@ -10,9 +8,7 @@ export default function CartEditMenu({ item }) {
 
   return (
     <div className="cartEditorMenu" ref={editMenuRef}>
-      <DecreaseButton item={item} />
       <QuantityForm item={item} />
-      <IncreaseButton item={item} />
     </div>
   );
 }

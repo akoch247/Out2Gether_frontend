@@ -1,5 +1,6 @@
 import useMutation from "../../../hooks/useMutation";
-import { FaTrashAlt } from "react-icons/fa";
+import RedButton from "../../../components/RedButton";
+import { FaRegTrashCan } from "react-icons/fa6";
 
 export default function DeleteButton({ item }) {
   const { mutate, loading } = useMutation("DELETE", "/cart/" + item.post_id, [
@@ -16,8 +17,8 @@ export default function DeleteButton({ item }) {
   };
 
   return (
-    <button className="cartBtn deleteBtn" onClick={handleClick}>
-      Delete <FaTrashAlt />
-    </button>
+    <RedButton className="rounded-pill" onClick={handleClick}>
+      Delete <FaRegTrashCan />
+    </RedButton>
   );
 }
