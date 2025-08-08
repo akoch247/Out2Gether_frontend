@@ -8,18 +8,21 @@ import { useFilter } from "../../../context/FilterContext";
 
 export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   return (
-    <FilterBar>
-      <EventList title={title} fromPath={fromPath} />
-    </FilterBar>
+    <div className="bg-white rounded p-4">
+      <h1 className="mb-4">{title}</h1>
+      <FilterBar>
+        <EventList title={title} fromPath={fromPath} />
+      </FilterBar>
+      <EventList fromPath={fromPath} />
+    </div>
   );
 }
 
-function EventList({ title, fromPath }) {
+function EventList({ fromPath }) {
   const { posts, page, setPage, limit } = useFilter();
 
   return (
-    <div className="bg-white rounded p-4">
-      <h1 className="mb-4">{title}</h1>
+    <>
       <div className="row g-4">
         {posts.map((post) => (
           <div key={post.id} className="col-12">
@@ -52,6 +55,6 @@ function EventList({ title, fromPath }) {
           Next Page
         </BlueButton>
       </div>
-    </div>
+    </>
   );
 }

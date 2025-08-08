@@ -1,5 +1,10 @@
 import EventGrid from "../components/EventGrid";
+import { FilterProvider } from "../../../context/FilterContext";
 
 export default function NearbyPage() {
-  return <EventGrid />;
+  return (
+    <FilterProvider>
+      <EventGrid />;
+    </FilterProvider>
+  );
 }

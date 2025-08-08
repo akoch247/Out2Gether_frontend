@@ -1,5 +1,10 @@
 import EventGrid from "../components/EventGrid";
+import { FilterProvider } from "../../../context/FilterContext";
 
 export default function ExplorePage() {
-  return <EventGrid title="Explore" fromPath="/explore" />;
+  return (
+    <FilterProvider>
+      <EventGrid title="Explore" fromPath="/explore" />;
+    </FilterProvider>
+  );
 }
