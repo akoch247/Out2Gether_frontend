@@ -10,9 +10,7 @@ export default function EventGrid({ title = "Date Spots Nearby", fromPath }) {
   return (
     <div className="bg-white rounded p-4">
       <h1 className="mb-4">{title}</h1>
-      <FilterBar>
-        <EventList title={title} fromPath={fromPath} />
-      </FilterBar>
+      <FilterBar className="mb-4" />
       <EventList fromPath={fromPath} />
     </div>
   );
